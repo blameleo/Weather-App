@@ -2,7 +2,7 @@ import React from "react";
 
 export default function Details(props) {
   return (
-    <div className="mt-64">
+    <div className="hidden sm:block mt-64">
       <h1 className="font-bold mb-10">Weather details</h1>
 
       <div className="flex justify-between py-5">

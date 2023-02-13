@@ -20,13 +20,14 @@ const Inputside = (props) => {
   // },[inputText])
 
   return (
-    <div className=" text-white px-12 h-screen  backdrop-blur-xl bg-white/30">
+    <div className=" mb-0 text-white px-12  h-screen  backdrop-blur-xl bg-white/30">
       <form
         onSubmit={(e) => {
           e.preventDefault();
           props.click(inputText);
           setState(true)
           setInputText("");
+          
         }}
         className=" py-10"
       >
@@ -44,7 +45,7 @@ const Inputside = (props) => {
         </div>
       </form>
 
-      {state &&  <Details cloudy={props.cloudy} humidity={props.humidity} wind={props.wind} feels={props.feels}/>}
+      {state &&  <Details  cloudy={props.cloudy} humidity={props.humidity} wind={props.wind} feels={props.feels}/>}
     </div>
   );
 };

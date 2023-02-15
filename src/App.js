@@ -14,7 +14,7 @@ export default function App() {
 
   function handleSearch(inputText) {
     // setState(inputText);
-    const url = `http://api.weatherapi.com/v1/current.json?key=ea75c4ec67f449458ec120109230902&q=${inputText}`;
+    const url = `https://api.weatherapi.com/v1/current.json?key=ea75c4ec67f449458ec120109230902&q=${inputText}`;
     axios.get(url).then((res) => {
       setState(res.data);
     });

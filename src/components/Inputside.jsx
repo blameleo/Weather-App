@@ -45,8 +45,8 @@ const Inputside = (props) => {
         </div>
       </form>
 
-      {state &&  <Details  cloudy={props.cloudy} humidity={props.humidity} wind={props.wind} feels={props.feels}/>}
-    </div>
+{  state &&     <Details  cloudy={props.cloudy} humidity={props.humidity} wind={props.wind} feels={props.feels}/>
+}    </div>
   );
 };
 

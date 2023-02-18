@@ -1,7 +1,7 @@
 import React from "react";
 import Display from "./components/Display";
 import Inputside from "./components/Inputside";
-import { useState } from "react";
+import { useState , createContext } from "react";
 // import axios from "axios";
 
 //create state for input and sotre it
@@ -9,6 +9,8 @@ import { useState } from "react";
 //state should be a simple string
 //whe i click the search console log current state
 
+
+export const AppContext = createContext();
 export default function App() {
   const [state, setState] = useState("");
   const [err, setErr] = useState(null);
@@ -40,6 +42,7 @@ export default function App() {
   }
 
   return (
+    <AppContext.Provider value={{state}}>
     <div>
       {err && (
         <p className="text-center bg-red-500 text-white">
@@ -47,7 +50,9 @@ export default function App() {
         </p>
       )}
 
-      {isloading && <p className="text-center bg-red-500 text-white">loading</p>}
+      {isloading && 
+      
+      <p className="text-center bg-red-500 text-white">loading</p>}
       <div className="sm:grid grid-cols-3 h-screen back ">
         <Display
           icon={state.current?.condition.icon}
@@ -55,7 +60,7 @@ export default function App() {
           degree={state.current?.temp_c}
           name={state.location?.name}
           time={state.location?.localtime}
-        ></Display>
+        />
         <Inputside
           click={handleSearch}
           cloudy={state.current?.cloud}
@@ -65,5 +70,6 @@ export default function App() {
         />
       </div>
     </div>
+    </AppContext.Provider>
   );
 }
